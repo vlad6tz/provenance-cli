@@ -35,9 +35,7 @@ func (m Model) View() string {
 	if !m.Report.HasManifest {
 		b.WriteString("  " + m.Styles.StatusWarn.Render("No C2PA provenance found.") + "\n\n")
 
-		b.WriteString(m.Styles.DisclaimerText.Render(
-			m.Styles.DisclaimerText.Render("This does NOT necessarily mean the image is fake or AI-generated."),
-		) + "\n")
+		b.WriteString(m.Styles.DisclaimerText.Render("This does NOT necessarily mean the image is fake or AI-generated.") + "\n")
 
 		b.WriteString(m.Styles.HelpText.Render("press q to quit"))
 		return b.String()
