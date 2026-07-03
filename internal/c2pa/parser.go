@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	"provenance/internal/utils"
+	"github.com/vlad6tz/provenance-cli/internal/utils"
 	"strings"
 
 	"github.com/richardwooding/c2pa"

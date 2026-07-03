@@ -1,4 +1,4 @@
-module provenance
+module github.com/vlad6tz/provenance-cli
 
 go 1.25.0
 

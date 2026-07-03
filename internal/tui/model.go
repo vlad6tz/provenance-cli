@@ -1,7 +1,7 @@
 package tui
 
 import (
-	"provenance/internal/c2pa"
+	"github.com/vlad6tz/provenance-cli/internal/c2pa"
 
 	tea "github.com/charmbracelet/bubbletea"
 )

@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"provenance/internal/c2pa"
-	"provenance/internal/tui"
+	"github.com/vlad6tz/provenance-cli/internal/c2pa"
+	"github.com/vlad6tz/provenance-cli/internal/tui"
 
 	"github.com/spf13/cobra"
 )
