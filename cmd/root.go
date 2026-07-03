@@ -8,7 +8,7 @@ import (
 )
 
 var RootCmd = &cobra.Command{
-	Use:   "provenance",
+	Use:   "prov",
 	Short: "Inspect C2PA provenance data in digital files",
 	Long: `Provenance is a CLI tool for inspecting and verifying C2PA (Coalition for Content Provenance and Authenticity) metadata embedded in digital files.
 
