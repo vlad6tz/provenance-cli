@@ -53,17 +53,23 @@ func (p *Parser) ParseFile(path string) (*ProvenanceReport, error) {
 
 	info := c2pa.Read(context.Background(), container, file)
 
-	infoStr := fmt.Sprintf("%v", info)
-
-	if infoStr == "{}" || infoStr == "" {
+	if !info.Present {
 		report.HasManifest = false
 		report.SignatureStatus = StatusNone
 		return report, nil
 	}
 
 	report.HasManifest = true
-	report.SignatureStatus = StatusUnverified
-	report.AssertionCount = 0
+	report.CreatorApp = info.ClaimGenerator
+	report.SignatureIssuer = info.SignedBy
+	if !info.SignedAt.IsZero() {
+		report.Timestamp = &info.SignedAt
+	}
+	if info.SignedBy != "" {
+		report.SignatureStatus = StatusValid
+	} else {
+		report.SignatureStatus = StatusUnverified
+	}
 
 	return report, nil
 }
