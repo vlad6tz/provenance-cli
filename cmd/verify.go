@@ -13,7 +13,7 @@ var verifyCmd = &cobra.Command{
 	Use:     "verify [image path]",
 	Aliases: []string{"v", "ver"},
 	Short:   "Verify C2PA provenance in a file",
-	Args:  cobra.ExactArgs(1),
+	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		parser := c2pa.NewParser()
 		styles := tui.DefaultStyles()
