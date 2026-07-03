@@ -17,7 +17,6 @@ type ProvenanceReport struct {
 	SignatureIssuer string
 	CreatorApp      string
 	Timestamp       *time.Time
-	AssertionCount  int
 	FileName        string
 	FileSize        int64
 	MimeType        string

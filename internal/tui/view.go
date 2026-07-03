@@ -58,15 +58,13 @@ func (m Model) View() string {
 	if m.Report.CreatorApp != "" {
 		b.WriteString(fmt.Sprintf("  %s %s\n", m.Styles.MetaLabel.Render("application"), m.Styles.MetaValue.Render(m.Report.CreatorApp)))
 	} else {
-		b.WriteString(fmt.Sprintf("  %s %s\n", m.Styles.MetaLabel.Render("application"), m.Styles.MetaHash.Render("unknown issuer")))
+		b.WriteString(fmt.Sprintf("  %s %s\n", m.Styles.MetaLabel.Render("application"), m.Styles.MetaHash.Render("unknown")))
 	}
 
 	if m.Report.Timestamp != nil {
 		formattedTime := m.Report.Timestamp.Format("2006-01-02 15:04 UTC")
 		b.WriteString(fmt.Sprintf("  %s %s\n", m.Styles.MetaLabel.Render("recorded at"), m.Styles.MetaValue.Render(formattedTime)))
 	}
-
-	b.WriteString(fmt.Sprintf("  %s %s\n", m.Styles.MetaLabel.Render("assertions"), m.Styles.MetaValue.Render(fmt.Sprintf("%d signatures", m.Report.AssertionCount))))
 
 	// Footer
 	b.WriteString(m.Styles.HelpText.Render("  press q to quit") + "\n")
