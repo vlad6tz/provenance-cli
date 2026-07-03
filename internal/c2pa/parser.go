@@ -62,21 +62,8 @@ func (p *Parser) ParseFile(path string) (*ProvenanceReport, error) {
 	}
 
 	report.HasManifest = true
-	report.AssertionCount = len(info.Assertions)
-
-	if info.Producer != nil {
-		report.CreatorApp = info.Producer.Name
-	}
-
-	if info.SignatureInfo != nil {
-		report.SignatureIssuer = info.SignatureInfo.Issuer
-		if info.SignatureInfo.Time != nil {
-			report.Timestamp = info.SignatureInfo.Time
-		}
-		report.SignatureStatus = StatusValid
-	} else {
-		report.SignatureStatus = StatusUnverified
-	}
+	report.SignatureStatus = StatusUnverified
+	report.AssertionCount = 0
 
 	return report, nil
 }

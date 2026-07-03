@@ -13,7 +13,7 @@ func NewVerifier() *Verifier {
 	return &Verifier{}
 }
 
-func (v *Verifier) VerifyManifestSign(report *ProvenanceReport) error {
+func (v *Verifier) VerifyManifestSgn(report *ProvenanceReport) error {
 	if !report.HasManifest {
 		return ErrNoManifest
 	}
