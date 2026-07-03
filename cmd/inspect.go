@@ -11,7 +11,7 @@ import (
 )
 
 var inseptCmd = &cobra.Command{
-	Use:     "inpect [image path]",
+	Use:     "inspect [image path]",
 	Aliases: []string{"i", "ins"},
 	Short:   "Inspect C2PA provenance in a file",
 	Args:    cobra.ExactArgs(1),
