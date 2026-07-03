@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const AppVersion = "1.0.0" // hardcoded for now, and also why not  hihi
+const AppVersion = "0.1.0" // hardcoded for now, and also why not  hihi
 
 var versionCmd = &cobra.Command{
 	Use:     "version",
