@@ -10,12 +10,17 @@ import (
 	"github.com/richardwooding/c2pa"
 )
 
+// Parser reads C2PA manifests from image files.
 type Parser struct{}
 
+// NewParser creates a new Parser.
 func NewParser() *Parser {
 	return &Parser{}
 }
 
+// ParseFile opens an image file, reads its C2PA manifest, and returns a
+// ProvenanceReport with the extracted metadata and file information.
+// Supported formats: JPEG and PNG. Other formats fall back to JPEG parsing.
 func (p *Parser) ParseFile(path string) (*ProvenanceReport, error) {
 	meta, err := utils.GetFileMetadata(path)
 	if err != nil {
