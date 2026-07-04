@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"github.com/vlad6tz/provenance-cli/internal/c2pa"
+	"github.com/vlad6tz/provenance-cli/pkg/c2pa"
 	"github.com/vlad6tz/provenance-cli/internal/tui"
 
 	tea "github.com/charmbracelet/bubbletea"
