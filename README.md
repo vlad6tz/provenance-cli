@@ -39,11 +39,11 @@ prov version
 
 ### inspect
 
-Parses the file's C2PA manifest and launches a Bubble Tea terminal UI. Displays file metadata (name, size, MIME type, SHA-256 hash), manifest status, signature status, certificate issuer, creator application, timestamp, and assertion count.
+Parses the file's C2PA manifest and launches a Bubble Tea terminal UI. Displays file metadata (name, size, MIME type, SHA-256 hash), manifest status, signature status, signer identity, creator application, and timestamp.
 
 ### verify
 
-Parses the file's C2PA manifest and prints a text-based report to stdout. Reports file name, whether a C2PA store was detected, signature status, and certificate authority. Exits with an error on failure.
+Parses the file's C2PA manifest and prints a text-based report to stdout. Reports file name, whether a C2PA store was detected, signature status, and signer identity. Exits with an error on failure.
 
 ### Interpreting Results
 
@@ -64,6 +64,27 @@ Prints the current version string (`prov1.0.0`).
 
 Other image formats may be processed as JPEG as a fallback but are not guaranteed to work.
 
+
+## Library Usage
+
+This project can also be used as a Go library:
+
+```go
+import "github.com/vlad6tz/provenance-cli/pkg/c2pa"
+
+parser := c2pa.NewParser()
+report, err := parser.ParseFile("image.jpg")
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf("Manifest: %v, Signed by: %s\n", report.HasManifest, report.SignatureIssuer)
+```
+
+## Testing
+
+```bash
+go test ./tests/ -v
+```
 
 ## Dependencies
 
